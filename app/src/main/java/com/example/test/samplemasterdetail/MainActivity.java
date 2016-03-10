@@ -13,7 +13,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.test.samplemasterdetail.fragments.DetailsFragment;
+import com.example.test.samplemasterdetail.fragments.MainFragment;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private static final String TAG = "MainActivityTAG_";
+
+    private MainFragment mMainFragment;
+    private DetailsFragment mDetailsFragment;
+
+    // TODO: 3/10/16 Change icon menu
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mMainFragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.main_fragment);
+        mDetailsFragment = (DetailsFragment) getSupportFragmentManager().findFragmentById(R.id.details_fragment);
     }
 
     @Override
@@ -66,11 +78,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.main_menu_settings) {
             return true;
         }
 
+        if (id == R.id.main_menu_toggle) {
+            refreshRecyclerLayout();
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    private void refreshRecyclerLayout() {
+        if (mMainFragment != null) {
+            mMainFragment.toggleGrid();
+        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

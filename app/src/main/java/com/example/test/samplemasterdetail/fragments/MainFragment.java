@@ -3,6 +3,7 @@ package com.example.test.samplemasterdetail.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -27,11 +28,15 @@ public class MainFragment extends Fragment {
 
     private static final String TAG = "MainFragmentTAG_";
     private static final String TOPICS_KEY = "BUNDLE_TOPICS_KEY";
+    private static final String IS_GRID_KEY = "BUNDLE_GRID_KEY";
+
+    private ToonsAdapter mToonsAdapter;
+    private ArrayList<RelatedTopic> mTopics;
+
+    private boolean isGrid;
+
     @Bind(R.id.f_main_recycler)
     RecyclerView mRecycler;
-
-    ToonsAdapter mToonsAdapter;
-    ArrayList<RelatedTopic> mTopics;
 
     public MainFragment() {
 
@@ -43,10 +48,12 @@ public class MainFragment extends Fragment {
 
         if (savedInstanceState == null) {
             mTopics = new ArrayList<>();
+            isGrid = false;
         } else {
             if (savedInstanceState.containsKey(TOPICS_KEY)) {
                 mTopics = savedInstanceState.getParcelableArrayList(TOPICS_KEY);
             }
+            isGrid = savedInstanceState.getBoolean(IS_GRID_KEY, false);
         }
         mToonsAdapter = new ToonsAdapter(mTopics);
     }
@@ -63,16 +70,26 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         mRecycler.setAdapter(mToonsAdapter);
-        mRecycler.setLayoutManager(new LinearLayoutManager(null));
+
+        refreshRecyclerLayout();
 
         if (mTopics.size() <= 0) {
             refreshRecycler(true);
         }
     }
 
+    private void refreshRecyclerLayout() {
+        if (!isGrid) {
+            mRecycler.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext()));
+        } else {
+            mRecycler.setLayoutManager(new GridLayoutManager(getContext().getApplicationContext(), 2, LinearLayoutManager.VERTICAL, false));
+        }
+    }
+
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putParcelableArrayList(TOPICS_KEY, mTopics);
+        outState.putBoolean(IS_GRID_KEY, isGrid);
         super.onSaveInstanceState(outState);
     }
 
@@ -88,5 +105,10 @@ public class MainFragment extends Fragment {
             mTopics.addAll(relatedTopics);
             mToonsAdapter.notifyDataSetChanged();
         }
+    }
+
+    public void toggleGrid() {
+        isGrid = !isGrid;
+        refreshRecyclerLayout();
     }
 }
