@@ -36,14 +36,14 @@ public class RetrofitHelper {
 
         Call<Result> listCall = buildDuckService().listCharacters(query);
 
-        Result results = null;
+        Result result = null;
 
         try {
-            results = listCall.execute().body();
+            result = listCall.execute().body();
         } catch (Exception e) {
             Log.e(TAG, "Error: " + e.toString());
         }
 
-        return results;
+        return result;
     }
 }
