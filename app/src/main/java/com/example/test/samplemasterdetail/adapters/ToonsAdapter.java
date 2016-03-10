@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.test.samplemasterdetail.R;
 import com.example.test.samplemasterdetail.entities.RelatedTopic;
+import com.example.test.samplemasterdetail.utils.ToonParser;
 
 import java.util.List;
 
@@ -46,8 +47,12 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
     public void onBindViewHolder(ToonsAdapter.ViewHolder viewHolder, int position) {
         RelatedTopic topic = mTopics.get(position);
 
+        //We can be sure that this function always returns an array with length 2
+        String[] parsedText = ToonParser.parseText(topic.getText());
+
         TextView textView = viewHolder.txtTitle;
-        textView.setText(topic.getText());
+        textView.setText(parsedText[0]);
+
     }
 
     @Override
