@@ -15,9 +15,6 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    // TODO: 3/10/16 Remove created by 'Evin'
-    // TODO: 3/10/16 Add AsyncTask to control flow
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
