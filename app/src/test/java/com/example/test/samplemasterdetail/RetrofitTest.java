@@ -13,7 +13,7 @@ public class RetrofitTest {
     @Test
     public void retrofit_isWorking() throws Exception {
         RetrofitHelper retrofitHelper = new RetrofitHelper();
-        for (RelatedTopic result : retrofitHelper.getCharacters().getRelatedTopics()){
+        for (RelatedTopic result : retrofitHelper.getCharacters()){
             System.out.println(result.getText());
         }
     }
