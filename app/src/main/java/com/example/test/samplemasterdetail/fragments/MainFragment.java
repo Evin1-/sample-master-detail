@@ -26,11 +26,12 @@ import butterknife.ButterKnife;
 public class MainFragment extends Fragment {
 
     private static final String TAG = "MainFragmentTAG_";
+    private static final String TOPICS_KEY = "BUNDLE_TOPICS_KEY";
     @Bind(R.id.f_main_recycler)
     RecyclerView mRecycler;
 
     ToonsAdapter mToonsAdapter;
-    List<RelatedTopic> mTopics;
+    ArrayList<RelatedTopic> mTopics;
 
     public MainFragment() {
 
@@ -40,7 +41,13 @@ public class MainFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mTopics = new ArrayList<>();
+        if (savedInstanceState == null) {
+            mTopics = new ArrayList<>();
+        } else {
+            if (savedInstanceState.containsKey(TOPICS_KEY)) {
+                mTopics = savedInstanceState.getParcelableArrayList(TOPICS_KEY);
+            }
+        }
         mToonsAdapter = new ToonsAdapter(mTopics);
     }
 
@@ -57,7 +64,16 @@ public class MainFragment extends Fragment {
 
         mRecycler.setAdapter(mToonsAdapter);
         mRecycler.setLayoutManager(new LinearLayoutManager(null));
-        refreshRecycler(true);
+
+        if (mTopics.size() <= 0) {
+            refreshRecycler(true);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putParcelableArrayList(TOPICS_KEY, mTopics);
+        super.onSaveInstanceState(outState);
     }
 
     private void refreshRecycler(boolean overrideSavedInstance) {
