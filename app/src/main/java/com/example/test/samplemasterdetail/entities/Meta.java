@@ -1,13 +1,16 @@
 
 package com.example.test.samplemasterdetail.entities;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Meta {
+public class Meta implements Parcelable {
 
     @SerializedName("maintainer")
     @Expose
@@ -95,7 +98,7 @@ public class Meta {
     private Object srcUrl;
 
     /**
-     * 
+     *
      * @return
      *     The maintainer
      */
@@ -104,7 +107,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param maintainer
      *     The maintainer
      */
@@ -113,7 +116,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The perlModule
      */
@@ -122,7 +125,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param perlModule
      *     The perl_module
      */
@@ -131,7 +134,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The status
      */
@@ -140,7 +143,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param status
      *     The status
      */
@@ -149,7 +152,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The productionState
      */
@@ -158,7 +161,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param productionState
      *     The production_state
      */
@@ -167,7 +170,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The devDate
      */
@@ -176,7 +179,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param devDate
      *     The dev_date
      */
@@ -185,7 +188,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The jsCallbackName
      */
@@ -194,7 +197,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param jsCallbackName
      *     The js_callback_name
      */
@@ -203,7 +206,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The signalFrom
      */
@@ -212,7 +215,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param signalFrom
      *     The signal_from
      */
@@ -221,7 +224,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The liveDate
      */
@@ -230,7 +233,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param liveDate
      *     The live_date
      */
@@ -239,7 +242,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The srcId
      */
@@ -248,7 +251,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param srcId
      *     The src_id
      */
@@ -257,7 +260,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The srcOptions
      */
@@ -266,7 +269,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param srcOptions
      *     The src_options
      */
@@ -275,7 +278,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The repo
      */
@@ -284,7 +287,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param repo
      *     The repo
      */
@@ -293,7 +296,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The developer
      */
@@ -302,7 +305,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param developer
      *     The developer
      */
@@ -311,7 +314,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The tab
      */
@@ -320,7 +323,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param tab
      *     The tab
      */
@@ -329,7 +332,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The producer
      */
@@ -338,7 +341,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param producer
      *     The producer
      */
@@ -347,7 +350,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The id
      */
@@ -356,7 +359,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param id
      *     The id
      */
@@ -365,7 +368,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The devMilestone
      */
@@ -374,7 +377,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param devMilestone
      *     The dev_milestone
      */
@@ -383,7 +386,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The topic
      */
@@ -392,7 +395,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param topic
      *     The topic
      */
@@ -401,7 +404,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The name
      */
@@ -410,7 +413,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param name
      *     The name
      */
@@ -419,7 +422,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The attribution
      */
@@ -428,7 +431,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param attribution
      *     The attribution
      */
@@ -437,7 +440,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The createdDate
      */
@@ -446,7 +449,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param createdDate
      *     The created_date
      */
@@ -455,7 +458,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The exampleQuery
      */
@@ -464,7 +467,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param exampleQuery
      *     The example_query
      */
@@ -473,7 +476,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The description
      */
@@ -482,7 +485,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param description
      *     The description
      */
@@ -491,7 +494,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The isStackexchange
      */
@@ -500,7 +503,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param isStackexchange
      *     The is_stackexchange
      */
@@ -509,7 +512,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The designer
      */
@@ -518,7 +521,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param designer
      *     The designer
      */
@@ -527,7 +530,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The srcDomain
      */
@@ -536,7 +539,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param srcDomain
      *     The src_domain
      */
@@ -545,7 +548,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The srcName
      */
@@ -554,7 +557,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param srcName
      *     The src_name
      */
@@ -563,7 +566,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The blockgroup
      */
@@ -572,7 +575,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param blockgroup
      *     The blockgroup
      */
@@ -581,7 +584,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @return
      *     The srcUrl
      */
@@ -590,7 +593,7 @@ public class Meta {
     }
 
     /**
-     * 
+     *
      * @param srcUrl
      *     The src_url
      */
@@ -598,4 +601,110 @@ public class Meta {
         this.srcUrl = srcUrl;
     }
 
+
+    protected Meta(Parcel in) {
+        maintainer = (Object) in.readValue(Object.class.getClassLoader());
+        perlModule = in.readString();
+        status = in.readString();
+        productionState = in.readString();
+        devDate = (Object) in.readValue(Object.class.getClassLoader());
+        jsCallbackName = in.readString();
+        signalFrom = in.readString();
+        liveDate = (Object) in.readValue(Object.class.getClassLoader());
+        srcId = in.readByte() == 0x00 ? null : in.readInt();
+        srcOptions = (SrcOptions) in.readValue(SrcOptions.class.getClassLoader());
+        repo = in.readString();
+        if (in.readByte() == 0x01) {
+            developer = new ArrayList<Developer>();
+            in.readList(developer, Developer.class.getClassLoader());
+        } else {
+            developer = null;
+        }
+        tab = in.readString();
+        producer = (Object) in.readValue(Object.class.getClassLoader());
+        id = in.readString();
+        devMilestone = in.readString();
+        if (in.readByte() == 0x01) {
+            topic = new ArrayList<String>();
+            in.readList(topic, String.class.getClassLoader());
+        } else {
+            topic = null;
+        }
+        name = in.readString();
+        attribution = (Object) in.readValue(Object.class.getClassLoader());
+        createdDate = (Object) in.readValue(Object.class.getClassLoader());
+        exampleQuery = in.readString();
+        description = in.readString();
+        isStackexchange = (Object) in.readValue(Object.class.getClassLoader());
+        designer = (Object) in.readValue(Object.class.getClassLoader());
+        srcDomain = in.readString();
+        srcName = in.readString();
+        blockgroup = (Object) in.readValue(Object.class.getClassLoader());
+        srcUrl = (Object) in.readValue(Object.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(maintainer);
+        dest.writeString(perlModule);
+        dest.writeString(status);
+        dest.writeString(productionState);
+        dest.writeValue(devDate);
+        dest.writeString(jsCallbackName);
+        dest.writeString(signalFrom);
+        dest.writeValue(liveDate);
+        if (srcId == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(srcId);
+        }
+        dest.writeValue(srcOptions);
+        dest.writeString(repo);
+        if (developer == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(developer);
+        }
+        dest.writeString(tab);
+        dest.writeValue(producer);
+        dest.writeString(id);
+        dest.writeString(devMilestone);
+        if (topic == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(topic);
+        }
+        dest.writeString(name);
+        dest.writeValue(attribution);
+        dest.writeValue(createdDate);
+        dest.writeString(exampleQuery);
+        dest.writeString(description);
+        dest.writeValue(isStackexchange);
+        dest.writeValue(designer);
+        dest.writeString(srcDomain);
+        dest.writeString(srcName);
+        dest.writeValue(blockgroup);
+        dest.writeValue(srcUrl);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Meta> CREATOR = new Parcelable.Creator<Meta>() {
+        @Override
+        public Meta createFromParcel(Parcel in) {
+            return new Meta(in);
+        }
+
+        @Override
+        public Meta[] newArray(int size) {
+            return new Meta[size];
+        }
+    };
 }

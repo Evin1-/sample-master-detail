@@ -1,13 +1,16 @@
 
 package com.example.test.samplemasterdetail.entities;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Result {
+public class Result implements Parcelable {
 
     @SerializedName("DefinitionSource")
     @Expose
@@ -74,7 +77,7 @@ public class Result {
     private List<Object> Results = new ArrayList<Object>();
 
     /**
-     * 
+     *
      * @return
      *     The DefinitionSource
      */
@@ -83,7 +86,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param DefinitionSource
      *     The DefinitionSource
      */
@@ -92,7 +95,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Heading
      */
@@ -101,7 +104,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param Heading
      *     The Heading
      */
@@ -110,7 +113,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The ImageWidth
      */
@@ -119,7 +122,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param ImageWidth
      *     The ImageWidth
      */
@@ -128,7 +131,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The RelatedTopics
      */
@@ -137,7 +140,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param RelatedTopics
      *     The RelatedTopics
      */
@@ -146,7 +149,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Entity
      */
@@ -155,7 +158,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param Entity
      *     The Entity
      */
@@ -164,7 +167,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The meta
      */
@@ -173,7 +176,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param meta
      *     The meta
      */
@@ -182,7 +185,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Type
      */
@@ -191,7 +194,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param Type
      *     The Type
      */
@@ -200,7 +203,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Redirect
      */
@@ -209,7 +212,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param Redirect
      *     The Redirect
      */
@@ -218,7 +221,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The DefinitionURL
      */
@@ -227,7 +230,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param DefinitionURL
      *     The DefinitionURL
      */
@@ -236,7 +239,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The AbstractURL
      */
@@ -245,7 +248,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param AbstractURL
      *     The AbstractURL
      */
@@ -254,7 +257,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Definition
      */
@@ -263,7 +266,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param Definition
      *     The Definition
      */
@@ -272,7 +275,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The AbstractSource
      */
@@ -281,7 +284,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param AbstractSource
      *     The AbstractSource
      */
@@ -290,7 +293,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Infobox
      */
@@ -299,7 +302,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param Infobox
      *     The Infobox
      */
@@ -308,7 +311,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Image
      */
@@ -317,7 +320,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param Image
      *     The Image
      */
@@ -326,7 +329,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The ImageIsLogo
      */
@@ -335,7 +338,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param ImageIsLogo
      *     The ImageIsLogo
      */
@@ -344,7 +347,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Abstract
      */
@@ -353,7 +356,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param Abstract
      *     The Abstract
      */
@@ -362,7 +365,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The AbstractText
      */
@@ -371,7 +374,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param AbstractText
      *     The AbstractText
      */
@@ -380,7 +383,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The AnswerType
      */
@@ -389,7 +392,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param AnswerType
      *     The AnswerType
      */
@@ -398,7 +401,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The ImageHeight
      */
@@ -407,7 +410,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param ImageHeight
      *     The ImageHeight
      */
@@ -416,7 +419,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Answer
      */
@@ -425,7 +428,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param Answer
      *     The Answer
      */
@@ -434,7 +437,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Results
      */
@@ -443,7 +446,7 @@ public class Result {
     }
 
     /**
-     * 
+     *
      * @param Results
      *     The Results
      */
@@ -451,4 +454,106 @@ public class Result {
         this.Results = Results;
     }
 
+
+    protected Result(Parcel in) {
+        DefinitionSource = in.readString();
+        Heading = in.readString();
+        ImageWidth = in.readByte() == 0x00 ? null : in.readInt();
+        if (in.readByte() == 0x01) {
+            RelatedTopics = new ArrayList<RelatedTopic>();
+            in.readList(RelatedTopics, RelatedTopic.class.getClassLoader());
+        } else {
+            RelatedTopics = null;
+        }
+        Entity = in.readString();
+        meta = (Meta) in.readValue(Meta.class.getClassLoader());
+        Type = in.readString();
+        Redirect = in.readString();
+        DefinitionURL = in.readString();
+        AbstractURL = in.readString();
+        Definition = in.readString();
+        AbstractSource = in.readString();
+        Infobox = in.readString();
+        Image = in.readString();
+        ImageIsLogo = in.readByte() == 0x00 ? null : in.readInt();
+        Abstract = in.readString();
+        AbstractText = in.readString();
+        AnswerType = in.readString();
+        ImageHeight = in.readByte() == 0x00 ? null : in.readInt();
+        Answer = in.readString();
+        if (in.readByte() == 0x01) {
+            Results = new ArrayList<Object>();
+            in.readList(Results, Object.class.getClassLoader());
+        } else {
+            Results = null;
+        }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(DefinitionSource);
+        dest.writeString(Heading);
+        if (ImageWidth == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(ImageWidth);
+        }
+        if (RelatedTopics == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(RelatedTopics);
+        }
+        dest.writeString(Entity);
+        dest.writeValue(meta);
+        dest.writeString(Type);
+        dest.writeString(Redirect);
+        dest.writeString(DefinitionURL);
+        dest.writeString(AbstractURL);
+        dest.writeString(Definition);
+        dest.writeString(AbstractSource);
+        dest.writeString(Infobox);
+        dest.writeString(Image);
+        if (ImageIsLogo == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(ImageIsLogo);
+        }
+        dest.writeString(Abstract);
+        dest.writeString(AbstractText);
+        dest.writeString(AnswerType);
+        if (ImageHeight == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(ImageHeight);
+        }
+        dest.writeString(Answer);
+        if (Results == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(Results);
+        }
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Result> CREATOR = new Parcelable.Creator<Result>() {
+        @Override
+        public Result createFromParcel(Parcel in) {
+            return new Result(in);
+        }
+
+        @Override
+        public Result[] newArray(int size) {
+            return new Result[size];
+        }
+    };
 }

@@ -1,10 +1,13 @@
 
 package com.example.test.samplemasterdetail.entities;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Icon {
+public class Icon implements Parcelable {
 
     @SerializedName("URL")
     @Expose
@@ -17,7 +20,7 @@ public class Icon {
     private String Width;
 
     /**
-     * 
+     *
      * @return
      *     The URL
      */
@@ -26,7 +29,7 @@ public class Icon {
     }
 
     /**
-     * 
+     *
      * @param URL
      *     The URL
      */
@@ -35,7 +38,7 @@ public class Icon {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Height
      */
@@ -44,7 +47,7 @@ public class Icon {
     }
 
     /**
-     * 
+     *
      * @param Height
      *     The Height
      */
@@ -53,7 +56,7 @@ public class Icon {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Width
      */
@@ -62,7 +65,7 @@ public class Icon {
     }
 
     /**
-     * 
+     *
      * @param Width
      *     The Width
      */
@@ -70,4 +73,35 @@ public class Icon {
         this.Width = Width;
     }
 
+
+    protected Icon(Parcel in) {
+        URL = in.readString();
+        Height = in.readString();
+        Width = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(URL);
+        dest.writeString(Height);
+        dest.writeString(Width);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Icon> CREATOR = new Parcelable.Creator<Icon>() {
+        @Override
+        public Icon createFromParcel(Parcel in) {
+            return new Icon(in);
+        }
+
+        @Override
+        public Icon[] newArray(int size) {
+            return new Icon[size];
+        }
+    };
 }

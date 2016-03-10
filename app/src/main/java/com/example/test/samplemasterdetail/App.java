@@ -12,6 +12,7 @@ public class App extends Application {
     // TODO: 3/10/16 Remove created by 'Evin'
     // TODO: 3/10/16 Click on item
     // TODO: 3/10/16 Save on rotation
+    // TODO: 3/10/16 Remove unused strings values
 
     @Override
     public void onCreate() {

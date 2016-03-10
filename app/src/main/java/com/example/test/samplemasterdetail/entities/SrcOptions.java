@@ -1,10 +1,13 @@
 
 package com.example.test.samplemasterdetail.entities;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SrcOptions {
+public class SrcOptions implements Parcelable {
 
     @SerializedName("skip_end")
     @Expose
@@ -50,7 +53,7 @@ public class SrcOptions {
     private String srcInfo;
 
     /**
-     * 
+     *
      * @return
      *     The skipEnd
      */
@@ -59,7 +62,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param skipEnd
      *     The skip_end
      */
@@ -68,7 +71,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @return
      *     The skipAbstract
      */
@@ -77,7 +80,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param skipAbstract
      *     The skip_abstract
      */
@@ -86,7 +89,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @return
      *     The skipQr
      */
@@ -95,7 +98,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param skipQr
      *     The skip_qr
      */
@@ -104,7 +107,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @return
      *     The language
      */
@@ -113,7 +116,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param language
      *     The language
      */
@@ -122,7 +125,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @return
      *     The skipIcon
      */
@@ -131,7 +134,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param skipIcon
      *     The skip_icon
      */
@@ -140,7 +143,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @return
      *     The skipImageName
      */
@@ -149,7 +152,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param skipImageName
      *     The skip_image_name
      */
@@ -158,7 +161,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @return
      *     The directory
      */
@@ -167,7 +170,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param directory
      *     The directory
      */
@@ -176,7 +179,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @return
      *     The minAbstractLength
      */
@@ -185,7 +188,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param minAbstractLength
      *     The min_abstract_length
      */
@@ -194,7 +197,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @return
      *     The skipAbstractParen
      */
@@ -203,7 +206,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param skipAbstractParen
      *     The skip_abstract_paren
      */
@@ -212,7 +215,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @return
      *     The isWikipedia
      */
@@ -221,7 +224,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param isWikipedia
      *     The is_wikipedia
      */
@@ -230,7 +233,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @return
      *     The sourceSkip
      */
@@ -239,7 +242,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param sourceSkip
      *     The source_skip
      */
@@ -248,7 +251,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @return
      *     The isFanon
      */
@@ -257,7 +260,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param isFanon
      *     The is_fanon
      */
@@ -266,7 +269,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @return
      *     The isMediawiki
      */
@@ -275,7 +278,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param isMediawiki
      *     The is_mediawiki
      */
@@ -284,7 +287,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @return
      *     The srcInfo
      */
@@ -293,7 +296,7 @@ public class SrcOptions {
     }
 
     /**
-     * 
+     *
      * @param srcInfo
      *     The src_info
      */
@@ -301,4 +304,92 @@ public class SrcOptions {
         this.srcInfo = srcInfo;
     }
 
+
+    protected SrcOptions(Parcel in) {
+        skipEnd = in.readString();
+        skipAbstract = in.readByte() == 0x00 ? null : in.readInt();
+        skipQr = in.readString();
+        language = in.readString();
+        skipIcon = in.readByte() == 0x00 ? null : in.readInt();
+        skipImageName = in.readByte() == 0x00 ? null : in.readInt();
+        directory = in.readString();
+        minAbstractLength = in.readString();
+        skipAbstractParen = in.readByte() == 0x00 ? null : in.readInt();
+        isWikipedia = in.readByte() == 0x00 ? null : in.readInt();
+        sourceSkip = in.readString();
+        isFanon = in.readByte() == 0x00 ? null : in.readInt();
+        isMediawiki = in.readByte() == 0x00 ? null : in.readInt();
+        srcInfo = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(skipEnd);
+        if (skipAbstract == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(skipAbstract);
+        }
+        dest.writeString(skipQr);
+        dest.writeString(language);
+        if (skipIcon == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(skipIcon);
+        }
+        if (skipImageName == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(skipImageName);
+        }
+        dest.writeString(directory);
+        dest.writeString(minAbstractLength);
+        if (skipAbstractParen == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(skipAbstractParen);
+        }
+        if (isWikipedia == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(isWikipedia);
+        }
+        dest.writeString(sourceSkip);
+        if (isFanon == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(isFanon);
+        }
+        if (isMediawiki == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(isMediawiki);
+        }
+        dest.writeString(srcInfo);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<SrcOptions> CREATOR = new Parcelable.Creator<SrcOptions>() {
+        @Override
+        public SrcOptions createFromParcel(Parcel in) {
+            return new SrcOptions(in);
+        }
+
+        @Override
+        public SrcOptions[] newArray(int size) {
+            return new SrcOptions[size];
+        }
+    };
 }

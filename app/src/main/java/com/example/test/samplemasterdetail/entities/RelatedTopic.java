@@ -1,10 +1,13 @@
 
 package com.example.test.samplemasterdetail.entities;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class RelatedTopic {
+public class RelatedTopic implements Parcelable {
 
     @SerializedName("Result")
     @Expose
@@ -20,7 +23,7 @@ public class RelatedTopic {
     private String Text;
 
     /**
-     * 
+     *
      * @return
      *     The Result
      */
@@ -29,7 +32,7 @@ public class RelatedTopic {
     }
 
     /**
-     * 
+     *
      * @param Result
      *     The Result
      */
@@ -38,7 +41,7 @@ public class RelatedTopic {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Icon
      */
@@ -47,7 +50,7 @@ public class RelatedTopic {
     }
 
     /**
-     * 
+     *
      * @param Icon
      *     The Icon
      */
@@ -56,7 +59,7 @@ public class RelatedTopic {
     }
 
     /**
-     * 
+     *
      * @return
      *     The FirstURL
      */
@@ -65,7 +68,7 @@ public class RelatedTopic {
     }
 
     /**
-     * 
+     *
      * @param FirstURL
      *     The FirstURL
      */
@@ -74,7 +77,7 @@ public class RelatedTopic {
     }
 
     /**
-     * 
+     *
      * @return
      *     The Text
      */
@@ -83,7 +86,7 @@ public class RelatedTopic {
     }
 
     /**
-     * 
+     *
      * @param Text
      *     The Text
      */
@@ -91,4 +94,37 @@ public class RelatedTopic {
         this.Text = Text;
     }
 
+
+    protected RelatedTopic(Parcel in) {
+        Result = in.readString();
+        Icon = (com.example.test.samplemasterdetail.entities.Icon) in.readValue(com.example.test.samplemasterdetail.entities.Icon.class.getClassLoader());
+        FirstURL = in.readString();
+        Text = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(Result);
+        dest.writeValue(Icon);
+        dest.writeString(FirstURL);
+        dest.writeString(Text);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<RelatedTopic> CREATOR = new Parcelable.Creator<RelatedTopic>() {
+        @Override
+        public RelatedTopic createFromParcel(Parcel in) {
+            return new RelatedTopic(in);
+        }
+
+        @Override
+        public RelatedTopic[] newArray(int size) {
+            return new RelatedTopic[size];
+        }
+    };
 }

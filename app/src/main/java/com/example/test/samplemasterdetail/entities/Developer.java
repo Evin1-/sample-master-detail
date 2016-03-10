@@ -1,10 +1,13 @@
 
 package com.example.test.samplemasterdetail.entities;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Developer {
+public class Developer implements Parcelable {
 
     @SerializedName("name")
     @Expose
@@ -17,7 +20,7 @@ public class Developer {
     private String type;
 
     /**
-     * 
+     *
      * @return
      *     The name
      */
@@ -26,7 +29,7 @@ public class Developer {
     }
 
     /**
-     * 
+     *
      * @param name
      *     The name
      */
@@ -35,7 +38,7 @@ public class Developer {
     }
 
     /**
-     * 
+     *
      * @return
      *     The url
      */
@@ -44,7 +47,7 @@ public class Developer {
     }
 
     /**
-     * 
+     *
      * @param url
      *     The url
      */
@@ -53,7 +56,7 @@ public class Developer {
     }
 
     /**
-     * 
+     *
      * @return
      *     The type
      */
@@ -62,7 +65,7 @@ public class Developer {
     }
 
     /**
-     * 
+     *
      * @param type
      *     The type
      */
@@ -70,4 +73,35 @@ public class Developer {
         this.type = type;
     }
 
+
+    protected Developer(Parcel in) {
+        name = in.readString();
+        url = in.readString();
+        type = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(url);
+        dest.writeString(type);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Developer> CREATOR = new Parcelable.Creator<Developer>() {
+        @Override
+        public Developer createFromParcel(Parcel in) {
+            return new Developer(in);
+        }
+
+        @Override
+        public Developer[] newArray(int size) {
+            return new Developer[size];
+        }
+    };
 }
