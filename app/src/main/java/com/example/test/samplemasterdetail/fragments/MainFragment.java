@@ -2,7 +2,6 @@ package com.example.test.samplemasterdetail.fragments;
 
 
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +12,7 @@ import android.view.ViewGroup;
 import com.example.test.samplemasterdetail.R;
 import com.example.test.samplemasterdetail.adapters.ToonsAdapter;
 import com.example.test.samplemasterdetail.entities.RelatedTopic;
-import com.example.test.samplemasterdetail.retrofit.RetrofitHelper;
+import com.example.test.samplemasterdetail.tasks.CharactersTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +25,7 @@ import butterknife.ButterKnife;
  */
 public class MainFragment extends Fragment {
 
+    private static final String TAG = "MainFragmentTAG_";
     @Bind(R.id.f_main_recycler)
     RecyclerView mRecycler;
 
@@ -33,18 +33,20 @@ public class MainFragment extends Fragment {
     List<RelatedTopic> mTopics;
 
     public MainFragment() {
-        // Required empty public constructor
+
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mTopics = new ArrayList<>();
+        mToonsAdapter = new ToonsAdapter(mTopics);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
-
-        mTopics = new ArrayList<>();
-        mToonsAdapter = new ToonsAdapter(mTopics);
-
         return view;
     }
 
@@ -55,18 +57,20 @@ public class MainFragment extends Fragment {
         mRecycler.setAdapter(mToonsAdapter);
         mRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        refreshRecycler();
+        refreshRecycler(true);
     }
 
-    private void refreshRecycler() {
+    private void refreshRecycler(boolean overrideSavedInstance) {
+        if (overrideSavedInstance){
+            new CharactersTask(this).execute();
+        }
+    }
 
-        // TODO: 3/10/16 Remove StrictMode
-
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-
-        RetrofitHelper retrofitHelper = new RetrofitHelper();
-        mTopics.addAll(retrofitHelper.getCharacters());
-        mToonsAdapter.notifyDataSetChanged();
+    public void refreshResults(List<RelatedTopic> relatedTopics) {
+        if (relatedTopics != null){
+            mTopics.clear();
+            mTopics.addAll(relatedTopics);
+            mToonsAdapter.notifyDataSetChanged();
+        }
     }
 }
