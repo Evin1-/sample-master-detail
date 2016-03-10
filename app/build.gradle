@@ -17,6 +17,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        simpsons {
+            applicationId "com.xfinity.simpsonsviewer"
+            resValue "string", "app_name", "Simpsons Character Viewer"
+            buildConfigField 'String', 'DATA_API', '"http://api.duckduckgo.com/?q=simpsons+characters&format=json"'
+        }
+
+        got {
+            applicationId "com.xfinity.gotviewer"
+            resValue "string", "app_name", "GOT Character Viewer"
+            buildConfigField 'String', 'DATA_API', '"http://api.duckduckgo.com/?q=game+of+thrones+characters&format=json"'
+        }
+    }
 }
 
 dependencies {
