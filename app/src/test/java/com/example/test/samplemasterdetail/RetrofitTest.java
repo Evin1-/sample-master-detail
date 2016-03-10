@@ -1,6 +1,6 @@
 package com.example.test.samplemasterdetail;
 
-import com.example.test.samplemasterdetail.entities.Result;
+import com.example.test.samplemasterdetail.entities.RelatedTopic;
 import com.example.test.samplemasterdetail.retrofit.RetrofitHelper;
 
 import org.junit.Test;
@@ -13,8 +13,8 @@ public class RetrofitTest {
     @Test
     public void retrofit_isWorking() throws Exception {
         RetrofitHelper retrofitHelper = new RetrofitHelper();
-        for (Object result : retrofitHelper.getCharacters().getResults()){
-            System.out.println(result);
+        for (RelatedTopic result : retrofitHelper.getCharacters().getRelatedTopics()){
+            System.out.println(result.getText());
         }
     }
 }
