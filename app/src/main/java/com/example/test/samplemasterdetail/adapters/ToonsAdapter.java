@@ -1,7 +1,6 @@
 package com.example.test.samplemasterdetail.adapters;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.test.samplemasterdetail.R;
 import com.example.test.samplemasterdetail.entities.RelatedTopic;
+import com.example.test.samplemasterdetail.fragments.MainFragment;
 import com.example.test.samplemasterdetail.utils.ToonParser;
 
 import java.util.List;
@@ -20,10 +20,12 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
 
     private static final String TAG = "ToonsAdapterTAG_";
     private final List<RelatedTopic> mTopics;
+    private final MainFragment mMainFragment;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         public final TextView txtTitle;
+        public RelatedTopic relatedTopic;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -33,13 +35,14 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
             txtTitle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d(TAG, "onClick: " + v);
+                    mMainFragment.toonClicked(relatedTopic);
                 }
             });
         }
     }
 
-    public ToonsAdapter(List<RelatedTopic> topics) {
+    public ToonsAdapter(MainFragment mainFragment, List<RelatedTopic> topics) {
+        mMainFragment = mainFragment;
         mTopics = topics;
     }
 
@@ -61,6 +64,7 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
         TextView textView = viewHolder.txtTitle;
         textView.setText(parsedText[0]);
 
+        viewHolder.relatedTopic = topic;
     }
 
     @Override

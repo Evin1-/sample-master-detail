@@ -1,6 +1,7 @@
 package com.example.test.samplemasterdetail.fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -33,6 +34,8 @@ public class MainFragment extends Fragment {
     private ToonsAdapter mToonsAdapter;
     private ArrayList<RelatedTopic> mTopics;
 
+    private OnToonClickCallback onToonClickCallback;
+
     private boolean isGrid;
 
     @Bind(R.id.f_main_recycler)
@@ -40,6 +43,21 @@ public class MainFragment extends Fragment {
 
     public MainFragment() {
 
+    }
+
+    public interface OnToonClickCallback {
+        public void toonClicked(RelatedTopic relatedTopic);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            onToonClickCallback = (OnToonClickCallback) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement OnHeadlineSelectedListener");
+        }
     }
 
     @Override
@@ -55,7 +73,7 @@ public class MainFragment extends Fragment {
             }
             isGrid = savedInstanceState.getBoolean(IS_GRID_KEY, false);
         }
-        mToonsAdapter = new ToonsAdapter(mTopics);
+        mToonsAdapter = new ToonsAdapter(this, mTopics);
     }
 
     @Override
@@ -110,5 +128,9 @@ public class MainFragment extends Fragment {
     public void toggleGrid() {
         isGrid = !isGrid;
         refreshRecyclerLayout();
+    }
+
+    public void toonClicked(RelatedTopic relatedTopic) {
+        onToonClickCallback.toonClicked(relatedTopic);
     }
 }

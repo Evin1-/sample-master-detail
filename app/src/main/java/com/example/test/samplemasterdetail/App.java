@@ -13,6 +13,7 @@ public class App extends Application {
     // TODO: 3/10/16 Click on item
     // TODO: 3/10/16 Save on rotation
     // TODO: 3/10/16 Remove unused strings values
+    // TODO: 3/10/16 Add scrolling behavior
 
     @Override
     public void onCreate() {
