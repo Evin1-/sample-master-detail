@@ -1,5 +1,6 @@
 package com.example.test.samplemasterdetail;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -20,6 +21,8 @@ import com.example.test.samplemasterdetail.fragments.MainFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, MainFragment.OnToonClickCallback {
     private static final String TAG = "MainActivityTAG_";
+
+    public static final String DETAILS_KEY = "BUNDLE_DETAILS_KEY";
 
     private MainFragment mMainFragment;
     private DetailsFragment mDetailsFragment;
@@ -129,17 +132,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void toonClicked(RelatedTopic relatedTopic) {
         if (isTablet()) {
-            refreshDetailsFragment();
+            refreshDetailsFragment(relatedTopic);
         } else {
-            launchDetailsActivity();
+            launchDetailsActivity(relatedTopic);
         }
     }
 
-    private void launchDetailsActivity() {
+    private void launchDetailsActivity(RelatedTopic relatedTopic) {
         Log.d(TAG, "launchDetailsActivity: ");
+        Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
+        intent.putExtra(DETAILS_KEY, relatedTopic);
+        startActivity(intent);
     }
 
-    private void refreshDetailsFragment() {
+    private void refreshDetailsFragment(RelatedTopic relatedTopic) {
         Log.d(TAG, "refreshDetailsFragment: ");
+        if (mDetailsFragment != null) {
+            mDetailsFragment.refreshDetails(relatedTopic);
+        }
     }
 }
