@@ -1,5 +1,7 @@
 package com.example.test.samplemasterdetail.retrofit;
 
+import android.util.Log;
+
 import com.example.test.samplemasterdetail.BuildConfig;
 import com.example.test.samplemasterdetail.entities.Result;
 
@@ -14,7 +16,7 @@ public class RetrofitHelper {
 
     private static final String TAG = "RetrofitHelperTAG_";
 
-    private static final String SIMPSON_VIEWER_PACKAGE = "com.xfinity.simpsonsviewer";
+    private static final String SIMPSONS_FLAVOR = "simpsons";
     private static final String SIMPSONS_QUERY = "simpsons characters";
     private static final String GOT_QUERY = "game of thrones characters";
 
@@ -28,7 +30,7 @@ public class RetrofitHelper {
     }
 
     public Result getCharacters() {
-        String query = (this.getClass().getCanonicalName().contains(SIMPSON_VIEWER_PACKAGE))
+        String query = (BuildConfig.FLAVOR.contains(SIMPSONS_FLAVOR))
                 ? SIMPSONS_QUERY
                 : GOT_QUERY;
 
@@ -39,8 +41,7 @@ public class RetrofitHelper {
         try {
             results = listCall.execute().body();
         } catch (Exception e) {
-//            Log.e(TAG, "Error: " + e.toString());
-            System.out.println(e.toString());
+            Log.e(TAG, "Error: " + e.toString());
         }
 
         return results;
