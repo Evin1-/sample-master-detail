@@ -3,7 +3,10 @@ package com.example.test.samplemasterdetail.retrofit;
 import android.util.Log;
 
 import com.example.test.samplemasterdetail.BuildConfig;
+import com.example.test.samplemasterdetail.entities.RelatedTopic;
 import com.example.test.samplemasterdetail.entities.Result;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -29,7 +32,7 @@ public class RetrofitHelper {
         return retrofit.create(DuckService.class);
     }
 
-    public Result getCharacters() {
+    public List<RelatedTopic> getCharacters() {
         String query = (BuildConfig.FLAVOR.contains(SIMPSONS_FLAVOR))
                 ? SIMPSONS_QUERY
                 : GOT_QUERY;
@@ -44,6 +47,8 @@ public class RetrofitHelper {
             Log.e(TAG, "Error: " + e.toString());
         }
 
-        return result;
+        return (result != null)
+                ? result.getRelatedTopics()
+                : null;
     }
 }
