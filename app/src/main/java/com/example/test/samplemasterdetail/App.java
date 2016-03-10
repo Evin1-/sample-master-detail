@@ -10,7 +10,6 @@ import com.squareup.leakcanary.LeakCanary;
 public class App extends Application {
 
     // TODO: 3/10/16 Remove created by 'Evin'
-    // TODO: 3/10/16 Add AsyncTask to control flow
     // TODO: 3/10/16 Click on item
     // TODO: 3/10/16 Save on rotation
 

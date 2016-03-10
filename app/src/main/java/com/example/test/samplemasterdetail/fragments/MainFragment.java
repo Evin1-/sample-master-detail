@@ -39,6 +39,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mTopics = new ArrayList<>();
         mToonsAdapter = new ToonsAdapter(mTopics);
     }
@@ -55,19 +56,18 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         mRecycler.setAdapter(mToonsAdapter);
-        mRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        mRecycler.setLayoutManager(new LinearLayoutManager(null));
         refreshRecycler(true);
     }
 
     private void refreshRecycler(boolean overrideSavedInstance) {
-        if (overrideSavedInstance){
+        if (overrideSavedInstance) {
             new CharactersTask(this).execute();
         }
     }
 
     public void refreshResults(List<RelatedTopic> relatedTopics) {
-        if (relatedTopics != null){
+        if (relatedTopics != null) {
             mTopics.clear();
             mTopics.addAll(relatedTopics);
             mToonsAdapter.notifyDataSetChanged();
