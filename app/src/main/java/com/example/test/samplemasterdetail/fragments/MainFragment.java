@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import com.example.test.samplemasterdetail.R;
 import com.example.test.samplemasterdetail.adapters.ToonsAdapter;
 import com.example.test.samplemasterdetail.entities.RelatedTopic;
-import com.example.test.samplemasterdetail.tasks.CharactersTask;
+import com.example.test.samplemasterdetail.tasks.ToonsTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,7 +113,7 @@ public class MainFragment extends Fragment {
 
     private void refreshRecycler(boolean overrideSavedInstance) {
         if (overrideSavedInstance) {
-            new CharactersTask(this).execute();
+            new ToonsTask(this).execute();
         }
     }
 

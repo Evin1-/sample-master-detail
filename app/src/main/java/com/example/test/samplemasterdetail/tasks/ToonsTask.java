@@ -11,12 +11,12 @@ import java.util.List;
 /**
  * Created by evin on 3/10/16.
  */
-public class CharactersTask extends AsyncTask<Void, Void, List<RelatedTopic>> {
+public class ToonsTask extends AsyncTask<Void, Void, List<RelatedTopic>> {
     private static final String TAG = "CharactersTaskTAG_";
 
     MainFragment mMainFragment;
 
-    public CharactersTask(MainFragment mainFragment) {
+    public ToonsTask(MainFragment mainFragment) {
         mMainFragment = mainFragment;
     }
 
