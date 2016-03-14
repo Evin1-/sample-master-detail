@@ -5,9 +5,7 @@
     <string name="menu_action_toggle_string">Toggle Grid</string>
     <string name="menu_action_settings_string">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="hello_blank_details_fragment">Hello blank details fragment</string>
+    <string name="hello_blank_details_fragment">Select a character from the left side</string>
 
     <string name="title_activity_details">DetailsActivity</string>
 
