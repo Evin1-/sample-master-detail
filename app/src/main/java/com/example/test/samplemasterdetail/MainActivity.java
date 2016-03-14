@@ -7,6 +7,7 @@ import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -33,35 +34,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        mMainFragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.main_fragment);
-        mDetailsFragment = (DetailsFragment) getSupportFragmentManager().findFragmentById(R.id.details_fragment);
+        setupToolbar();
+        retrieveFragments();
+        setTitleBar();
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.main_menu_toggle).setVisible(!isTablet());
-
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -80,31 +61,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.main_menu_settings) {
-            return true;
-        }
-
-        if (id == R.id.main_menu_toggle) {
-            refreshRecyclerLayout();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void refreshRecyclerLayout() {
-        if (mMainFragment != null) {
-            mMainFragment.toggleGrid();
-        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -132,10 +88,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    private boolean isTablet() {
-        return mDetailsFragment != null && mDetailsFragment.isAdded();
-    }
-
     @Override
     public void toonClicked(RelatedTopic relatedTopic) {
         if (isTablet()) {
@@ -143,6 +95,62 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             launchDetailsActivity(relatedTopic);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.main_menu_settings) {
+            return true;
+        }
+
+        if (id == R.id.main_menu_toggle) {
+            refreshRecyclerLayout();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void retrieveFragments() {
+        mMainFragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.main_fragment);
+        mDetailsFragment = (DetailsFragment) getSupportFragmentManager().findFragmentById(R.id.details_fragment);
+    }
+
+    private void setupToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void refreshRecyclerLayout() {
+        if (mMainFragment != null) {
+            mMainFragment.toggleGrid();
+        }
+    }
+
+    private void setTitleBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null){
+            actionBar.setTitle(R.string.app_name);
+            actionBar.setSubtitle(getString(R.string.activity_main_name));
+        }
+    }
+
+    private boolean isTablet() {
+        return mDetailsFragment != null && mDetailsFragment.isAdded();
     }
 
     private void launchDetailsActivity(RelatedTopic relatedTopic) {
