@@ -59,6 +59,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.main_menu_toggle).setVisible(!isTablet());
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {

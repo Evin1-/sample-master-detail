@@ -25,7 +25,6 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
     // TODO: 3/13/16 Placeholder images
 
     private static final String TAG = "ToonsAdapterTAG_";
-    private static final String ANDROID_PLACEHOLDER_URL = "http://wiki.gameschart.com/images/0/0f/Android-placeholder.jpg";
     private static final String SIMPSONS_FLAVOR = "simpsons";
 
     private final List<RelatedTopic> mTopics;
