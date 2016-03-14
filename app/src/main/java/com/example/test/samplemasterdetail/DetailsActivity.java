@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 
 import com.example.test.samplemasterdetail.entities.RelatedTopic;
 import com.example.test.samplemasterdetail.fragments.DetailsFragment;
@@ -23,6 +24,10 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+
+        if (isTablet()){
+            onBackPressed();
+        }
 
         retrieveFragments();
         setupToolbar();
@@ -53,6 +58,15 @@ public class DetailsActivity extends AppCompatActivity {
         if (actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+    }
+
+    private boolean isTablet() {
+        return getWidthInDp() > 600;
+    }
+
+    private float getWidthInDp() {
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        return displayMetrics.widthPixels / displayMetrics.density;
     }
 
     private void retrieveTopic() {
