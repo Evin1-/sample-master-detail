@@ -5,14 +5,18 @@
     <string name="menu_action_toggle_string">Toggle Grid</string>
     <string name="menu_action_settings_string">Settings</string>
 
-    <string name="hello_blank_details_fragment">Select a character from the left side</string>
+    <string name="hello_blank_details_fragment">Select a character from the left</string>
 
     <string name="title_activity_details">DetailsActivity</string>
 
     <string name="recycler_img_description">Character icon image</string>
+
     <string name="details_background_img_description">Background Image Description</string>
+    <string name="details_fragment_favorites_button">Add to favorites</string>
 
     <string name="activity_main_name">Home</string>
     <string name="activity_details_name">Details</string>
+
     <string name="placeholder_text">Loading</string>
+
 </resources>
