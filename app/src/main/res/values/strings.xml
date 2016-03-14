@@ -12,7 +12,8 @@
     <string name="recycler_img_description">Character icon image</string>
 
     <string name="details_background_img_description">Background Image Description</string>
-    <string name="details_fragment_favorites_button">Add to favorites</string>
+    <string name="details_fragment_add_favorites_button">Add to favorites</string>
+    <string name="details_fragment_remove_favorites_button">Remove from favorites</string>
 
     <string name="activity_main_name">Home</string>
     <string name="activity_details_name">Details</string>

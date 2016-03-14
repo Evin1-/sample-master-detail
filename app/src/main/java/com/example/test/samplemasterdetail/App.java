@@ -21,6 +21,7 @@ public class App extends Application {
     // TODO: 3/13/16 Favorite characters
     // TODO: 3/13/16 Add animations
     // TODO: 3/14/16 Set not grid if tabletlayout
+    // TODO: 3/14/16 Add icon recycler_item stylish
 
     @Override
     public void onCreate() {
