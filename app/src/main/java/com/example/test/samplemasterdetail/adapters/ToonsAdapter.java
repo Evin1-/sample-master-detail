@@ -93,9 +93,8 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
             } else {
                 Picasso.with(mMainFragment.getContext())
                         .load(url)
-                        .resize(100, 100)
-                        .placeholder(IMAGE_PLACEHOLDER)
                         .error(IMAGE_PLACEHOLDER)
+                        .resize(100, 100)
                         .into(imageViewIcon);
             }
         } else {
