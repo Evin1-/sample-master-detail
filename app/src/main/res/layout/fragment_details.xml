@@ -30,19 +30,6 @@
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/details_fragment_description_font_size" />
 
-            <TextView
-                android:id="@+id/f_details_fav_txt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/details_fragment_text_margin"
-                android:paddingBottom="@dimen/details_fragment_text_padding"
-                android:paddingTop="@dimen/details_fragment_text_padding"
-                android:text="@string/details_fragment_add_favorites_button"
-                android:textAllCaps="true"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/details_fragment_description_font_size" />
-
         </LinearLayout>
-
     </FrameLayout>
 </RelativeLayout>
