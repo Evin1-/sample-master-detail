@@ -1,5 +1,6 @@
 package com.example.test.samplemasterdetail.adapters;
 
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,9 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
             ? R.drawable.simpsons_placeholder
             : R.drawable.got_placeholder;
 
+    private int IMAGE_WIDTH;
+    private int IMAGE_HEIGHT;
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public final TextView txtTitle;
@@ -61,6 +65,12 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
     public ToonsAdapter(MainFragment mainFragment, List<RelatedTopic> topics) {
         mMainFragment = mainFragment;
         mTopics = topics;
+
+        if (mMainFragment != null) {
+            Resources resources = mMainFragment.getResources();
+            IMAGE_WIDTH = ((int) resources.getDimension(R.dimen.image_width));
+            IMAGE_HEIGHT = ((int) resources.getDimension(R.dimen.image_height));
+        }
     }
 
     @Override
@@ -94,13 +104,13 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
             if (url.isEmpty()) {
                 Picasso.with(mMainFragment.getContext())
                         .load(IMAGE_PLACEHOLDER)
-                        .resize(100, 100)
+                        .resize(IMAGE_WIDTH, IMAGE_HEIGHT)
                         .into(imageViewIcon);
             } else {
                 Picasso.with(mMainFragment.getContext())
                         .load(url)
                         .error(IMAGE_PLACEHOLDER)
-                        .resize(100, 100)
+                        .resize(IMAGE_WIDTH, IMAGE_HEIGHT)
                         .into(imageViewIcon);
             }
         } else {
