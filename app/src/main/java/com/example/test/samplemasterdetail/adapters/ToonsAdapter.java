@@ -37,6 +37,8 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public final TextView txtTitle;
+        public final TextView txtDescription;
+
         public final ImageView imgIcon;
         public RelatedTopic relatedTopic;
 
@@ -44,6 +46,7 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
             super(itemView);
 
             txtTitle = (TextView) itemView.findViewById(R.id.r_txt_title);
+            txtDescription = (TextView) itemView.findViewById(R.id.r_txt_description);
             imgIcon = (ImageView) itemView.findViewById(R.id.r_img_icon);
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -75,8 +78,11 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
         //We can be sure that this function always returns an array with length 2
         String[] parsedText = ToonParser.parseText(topic.getText());
 
-        TextView textView = viewHolder.txtTitle;
-        textView.setText(parsedText[0]);
+        TextView textViewTitle = viewHolder.txtTitle;
+        textViewTitle.setText(parsedText[0]);
+
+        TextView textViewDescription = viewHolder.txtDescription;
+        textViewDescription.setText(parsedText[1]);
 
         ImageView imageViewIcon = viewHolder.imgIcon;
 

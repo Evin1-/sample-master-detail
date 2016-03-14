@@ -15,4 +15,5 @@
 
     <string name="activity_main_name">Home</string>
     <string name="activity_details_name">Details</string>
+    <string name="placeholder_text">Loading</string>
 </resources>

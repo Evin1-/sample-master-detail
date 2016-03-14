@@ -17,7 +17,7 @@ public class App extends Application {
     // TODO: 3/13/16 Check if details is empty on tablet layout
     // TODO: 3/13/16 Make DetailsActivity pretty
     // TODO: 3/13/16 Create note docs and commenting 
-    // TODO: 3/13/16 Implement local search functionality 
+    // TODO: 3/13/16 Implement local search functionality
     // TODO: 3/13/16 Favorite characters
     // TODO: 3/13/16 Add animations
 
