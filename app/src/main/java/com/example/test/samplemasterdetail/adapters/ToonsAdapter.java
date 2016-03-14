@@ -24,6 +24,7 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
 
     // TODO: 3/13/16 Change placeholders
     // TODO: 3/13/16 Placeholder images
+    // TODO: 3/14/16 Refactor Placeholder image code different file
 
     private static final String TAG = "ToonsAdapterTAG_";
     private static final String SIMPSONS_FLAVOR = "simpsons";
@@ -96,6 +97,12 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
 
         ImageView imageViewIcon = viewHolder.imgIcon;
 
+        setImageOrPlaceholder(topic, imageViewIcon);
+
+        viewHolder.relatedTopic = topic;
+    }
+
+    private void setImageOrPlaceholder(RelatedTopic topic, ImageView imageViewIcon) {
         if (mMainFragment != null && mMainFragment.isGrid()) {
             imageViewIcon.setVisibility(View.VISIBLE);
 
@@ -116,8 +123,6 @@ public class ToonsAdapter extends RecyclerView.Adapter<ToonsAdapter.ViewHolder> 
         } else {
             imageViewIcon.setVisibility(View.GONE);
         }
-
-        viewHolder.relatedTopic = topic;
     }
 
     @Override

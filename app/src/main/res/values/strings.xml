@@ -12,6 +12,7 @@
     <string name="title_activity_details">DetailsActivity</string>
 
     <string name="recycler_img_description">Character icon image</string>
+    <string name="details_background_img_description">Background Image Description</string>
 
     <string name="activity_main_name">Home</string>
     <string name="activity_details_name">Details</string>
