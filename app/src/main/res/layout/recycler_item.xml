@@ -31,6 +31,11 @@
                 android:textSize="@dimen/recycler_item_title_font_size"
                 android:textStyle="bold" />
 
+            <View
+                android:background="@color/colorLightGray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
             <TextView
                 android:id="@+id/r_txt_description"
                 android:layout_width="match_parent"
