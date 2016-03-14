@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.test.samplemasterdetail.R;
 import com.example.test.samplemasterdetail.adapters.ToonsAdapter;
+import com.example.test.samplemasterdetail.decorators.SpacesItemDecorator;
 import com.example.test.samplemasterdetail.entities.RelatedTopic;
 import com.example.test.samplemasterdetail.tasks.ToonsTask;
 
@@ -88,6 +89,7 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         mRecycler.setAdapter(mToonsAdapter);
+        mRecycler.addItemDecoration(new SpacesItemDecorator(10));
 
         refreshRecyclerLayout();
 
