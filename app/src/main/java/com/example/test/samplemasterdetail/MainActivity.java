@@ -3,6 +3,7 @@ package com.example.test.samplemasterdetail;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.test.samplemasterdetail.entities.RelatedTopic;
+import com.example.test.samplemasterdetail.fragments.AboutFragment;
 import com.example.test.samplemasterdetail.fragments.DetailsFragment;
 import com.example.test.samplemasterdetail.fragments.MainFragment;
 
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final String TAG = "MainActivityTAG_";
 
     public static final String DETAILS_KEY = "BUNDLE_DETAILS_KEY";
+    private static final String ABOUT_FRAGMENT_KEY = "ABOUT_FRAGMENT_KEY_BUNDLE";
 
     private MainFragment mMainFragment;
     private DetailsFragment mDetailsFragment;
@@ -67,8 +70,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_share) {
             shareApp();
-        } else {
-
+        } else if (id == R.id.nav_about) {
+            showAbout();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -97,6 +100,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showAbout() {
+        AboutFragment aboutFragment = new AboutFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        aboutFragment.show(fragmentManager, ABOUT_FRAGMENT_KEY);
     }
 
     private void shareApp() {
