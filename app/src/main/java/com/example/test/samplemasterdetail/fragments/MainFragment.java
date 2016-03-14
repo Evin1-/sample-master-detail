@@ -133,4 +133,8 @@ public class MainFragment extends Fragment {
     public void toonClicked(RelatedTopic relatedTopic) {
         onToonClickCallback.toonClicked(relatedTopic);
     }
+
+    public boolean isGrid() {
+        return isGrid;
+    }
 }

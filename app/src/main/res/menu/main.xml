@@ -4,7 +4,6 @@
 
     <item
         android:id="@+id/main_menu_toggle"
-        android:icon="@drawable/ic_collections_white_24dp"
         android:orderInCategory="5"
         android:title="@string/menu_action_toggle_string"
         app:showAsAction="ifRoom" />
