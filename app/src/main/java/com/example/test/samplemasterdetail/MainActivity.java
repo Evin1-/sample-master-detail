@@ -65,17 +65,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else {
 
         }
 
@@ -134,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void setTitleBar() {
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null){
+        if (actionBar != null) {
             actionBar.setTitle(R.string.app_name);
             actionBar.setSubtitle(getString(R.string.activity_main_name));
         }
