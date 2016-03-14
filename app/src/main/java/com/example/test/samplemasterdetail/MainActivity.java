@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_share) {
-
+            shareApp();
         } else {
 
         }
@@ -97,6 +97,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void shareApp() {
+        Intent intent = new Intent();
+
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, "Check this cool app!");
+        intent.setType("text/plain");
+
+        startActivity(intent);
     }
 
     private void retrieveFragments() {
