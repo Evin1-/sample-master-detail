@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setupToolbar();
         retrieveFragments();
+        setupToolbar();
         setTitleBar();
     }
 
@@ -151,14 +151,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void launchDetailsActivity(RelatedTopic relatedTopic) {
-        Log.d(TAG, "launchDetailsActivity: ");
         Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
         intent.putExtra(DETAILS_KEY, relatedTopic);
         startActivity(intent);
     }
 
     private void refreshDetailsFragment(RelatedTopic relatedTopic) {
-        Log.d(TAG, "refreshDetailsFragment: ");
         if (mDetailsFragment != null) {
             mDetailsFragment.refreshDetails(relatedTopic);
         }

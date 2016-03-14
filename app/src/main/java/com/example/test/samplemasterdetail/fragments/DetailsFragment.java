@@ -40,6 +40,5 @@ public class DetailsFragment extends Fragment {
 
     public void refreshDetails(RelatedTopic relatedTopic) {
         mTextView.setText(relatedTopic.getText());
-        Log.d(TAG, "refreshDetails: " + mTextView);
     }
 }
